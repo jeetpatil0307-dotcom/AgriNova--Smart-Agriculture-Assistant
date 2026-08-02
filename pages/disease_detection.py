@@ -11,6 +11,7 @@ def render():
     
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
+        image.name = getattr(uploaded_file, 'name', '')
         
         # Display uploaded image in small preview (width 300px)
         st.image(image, caption=t("Uploaded Image"), width=300)
