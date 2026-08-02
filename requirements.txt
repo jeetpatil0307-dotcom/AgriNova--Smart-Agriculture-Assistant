@@ -1,0 +1,9 @@
+streamlit
+tensorflow
+opencv-python-headless
+numpy
+pandas
+pillow
+groq
+deep-translator
+requests
