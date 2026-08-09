@@ -42,7 +42,12 @@ def main():
         
         # Menu Options
         menu = ["Home", "Disease Detection", "AI Assistant", "About"]
-        choice = st.radio("Navigation", menu)
+        if "navigation_choice" not in st.session_state:
+            st.session_state.navigation_choice = "Home"
+            
+        current_index = menu.index(st.session_state.navigation_choice) if st.session_state.navigation_choice in menu else 0
+        choice = st.radio("Navigation", menu, index=current_index, key="navigation_radio")
+        st.session_state.navigation_choice = choice
         
     # Route to the selected page
     if choice == "Home":

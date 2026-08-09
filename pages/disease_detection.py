@@ -48,3 +48,12 @@ def render():
                     st.write(f"**{t('Recommended Fungicide/Pesticide')}:** {t(disease_info['pesticide'])}")
                     st.write(f"**{t('Organic Control Methods')}:** {t(disease_info['organic_treatment'])}")
                     st.write(f"**{t('Fertilizer Recommendation')}:** {t(disease_info['fertilizer'])}")
+                    
+                    st.markdown("---")
+                    if st.button(t("💬 Ask AI Assistant")):
+                        st.session_state.detected_disease_context = {
+                            "info": disease_info,
+                            "confidence": confidence
+                        }
+                        st.session_state.navigation_choice = "AI Assistant"
+                        st.rerun()
