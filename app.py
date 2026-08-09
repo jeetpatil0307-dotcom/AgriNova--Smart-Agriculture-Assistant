@@ -46,7 +46,7 @@ def main():
             st.session_state.navigation_choice = "Home"
             
         current_index = menu.index(st.session_state.navigation_choice) if st.session_state.navigation_choice in menu else 0
-        choice = st.radio("Navigation", menu, index=current_index, key="navigation_radio")
+        choice = st.radio("Navigation", menu, index=current_index)
         st.session_state.navigation_choice = choice
         
     # Route to the selected page

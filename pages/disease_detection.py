@@ -79,5 +79,4 @@ def render():
                 st.session_state["prefill_chat_text"] = prompt_text
                 st.session_state["user_chat_input"] = prompt_text
                 st.session_state["navigation_choice"] = "AI Assistant"
-                st.session_state["navigation_radio"] = "AI Assistant"
                 st.rerun()
