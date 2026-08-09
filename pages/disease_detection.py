@@ -51,9 +51,14 @@ def render():
                     
                     st.markdown("---")
                     if st.button(t("💬 Ask AI Assistant")):
-                        st.session_state.detected_disease_context = {
-                            "info": disease_info,
-                            "confidence": confidence
-                        }
+                        d_name = t(disease_info["name"])
+                        conf_val = f"{confidence*100:.1f}%" if isinstance(confidence, (int, float)) else str(confidence)
+                        
+                        prompt_text = t(
+                            f"My plant disease detection result is {d_name} with {conf_val} confidence. "
+                            f"Please give me complete information about this disease, including symptoms, causes, prevention, treatment, and suitable organic/fertilizer suggestions."
+                        )
+                        st.session_state["prefill_chat_text"] = prompt_text
+                        st.session_state["user_chat_input"] = prompt_text
                         st.session_state.navigation_choice = "AI Assistant"
                         st.rerun()
