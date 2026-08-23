@@ -35,7 +35,7 @@ def get_ai_response(prompt, context=""):
         
         chat_completion = client.chat.completions.create(
             messages=messages,
-            model="llama-3.3-70b-versatile",
+            model="gpt-oss-120b",
             temperature=0.5,
             max_tokens=1024,
         )
