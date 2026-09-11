@@ -16,7 +16,7 @@ def render():
     #### {t('Key Features:')}
     - 🔍 **{t('Plant Disease Detection')}**: {t('Upload an image of a leaf to instantly identify diseases and get treatment recommendations.')}
     - 💬 **{t('AI Agriculture Assistant')}**: {t('Ask any farming-related questions to our intelligent assistant.')}
-    - 🌤️ **{t('Weather Advisory')}**: {t('Get real-time weather updates and AI-driven farming advice.')}
+    
     - 🌐 **{t('Multi-Language')}**: {t('Available in English, Marathi, and Hindi.')}
     
     {t('Navigate using the sidebar to explore the features!')}

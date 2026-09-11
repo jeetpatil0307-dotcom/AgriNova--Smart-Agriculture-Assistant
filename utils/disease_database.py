@@ -178,15 +178,4 @@ def get_disease_details(disease_key):
         return DISEASE_KNOWLEDGE_BASE[disease_key]
         
     # Clean fallback for any class name
-    clean_name = str(disease_key).replace("___", " - ").replace("_", " ")
-    return {
-        "name": clean_name,
-        "description": f"Diagnosis identified visual symptoms matching {clean_name}.",
-        "causes": "Pathogen infection (fungal, bacterial, viral) or environmental stress.",
-        "symptoms": f"Discoloration, spots, or tissue deformation matching {clean_name}.",
-        "prevention": "Practice crop rotation, plant sanitation, proper spacing, and drip irrigation.",
-        "treatment": "Apply targeted crop protection products according to local agricultural guidelines.",
-        "pesticide": "Registered protective fungicide or insecticide.",
-        "organic_treatment": "Apply neem oil spray or organic copper fungicide.",
-        "fertilizer": "Balanced N-P-K fertilizer based on soil testing."
-    }
+   
