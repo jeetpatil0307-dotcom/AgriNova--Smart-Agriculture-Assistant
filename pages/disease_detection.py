@@ -25,16 +25,22 @@ def render():
         if st.button(t("Check Disease")):
             with st.spinner(t("Analyzing...")):
                 loaded_model_data = load_model()
-                disease_info, confidence = predict_disease(image, loaded_model_data)
+                disease_info, confidence, status = predict_disease(image, loaded_model_data)
                 
-                if disease_info:
+                if status == "wrong_image":
+                    st.session_state["current_detection"] = None
+                    st.error(t("Wrong Image Uploaded. Please upload a valid plant leaf image."))
+                elif status == "unclear_image":
+                    st.session_state["current_detection"] = None
+                    st.error(t("Unable to detect disease. Please upload a clear plant leaf image."))
+                elif disease_info:
                     st.session_state["current_detection"] = {
                         "info": disease_info,
                         "confidence": confidence
                     }
                 else:
                     st.session_state["current_detection"] = None
-                    st.error(t("Unable to analyze image. Please try again."))
+                    st.error(t("Unable to detect disease. Please upload a clear plant leaf image."))
                     
         # Render Detection Result & Ask AI Assistant Button if detection is stored
         detection = st.session_state.get("current_detection")
